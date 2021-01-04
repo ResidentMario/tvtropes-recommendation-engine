@@ -1,0 +1,5 @@
+# docker run -v /var/lib/tvtropes.db:/var/lib/tvtropes.db tvtropes-database:latest
+FROM ubuntu:latest
+RUN apt-get -y update && apt-get -y upgrade && \
+    apt-get install -y sqlite3 libsqlite3-dev
+CMD ["/usr/bin/sqlite3", "/var/lib/tvtropes.db"]
